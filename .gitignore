@@ -1,0 +1,14 @@
+# macOS
+.DS_Store
+
+# Local tool settings
+.claude/
+
+# Raw source material (kept locally, not part of the website)
+# - originals live here; the site uses optimised copies in site/assets
+/assets/
+/services/
+/Screenshot *.png
+/Blurred Photographer in Red.png
+# internal pricing calculation
+/Preisliste.png

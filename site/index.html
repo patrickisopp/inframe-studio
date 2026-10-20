@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>inframe.studios — An Actors Studio · London</title>
+  <meta name="description" content="Natural, castable headshots, showreels and self-tapes for actors in London. Directed by someone who's spent as much time behind the camera as in front of it.">
+  <script>
+    document.documentElement.classList.add("js");
+    // loading screen, skipped for people who prefer reduced motion
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) document.documentElement.classList.add("is-loading");
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Inter:wght@400;500&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="assets/hero-red.jpg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===================== Loading screen ===================== -->
+  <div class="loader" aria-hidden="true">
+    <div class="loader__inner">
+      <p class="loader__logo">inframe.studios<sup>°</sup></p>
+      <p class="loader__tag">An actors studio in London</p>
+    </div>
+  </div>
+
+  <!-- ===================== Header ===================== -->
+  <header class="header header--light">
+    <a class="logo" href="index.html">inframe.studios</a>
+    <button class="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
+    <nav class="nav" aria-label="Main">
+      <div class="nav__links">
+        <a href="#headshots">Headshots</a>
+        <a href="#showreel">Showreel</a>
+        <a href="sessions.html">Sessions</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a class="btn btn--red" href="#contact">Book now</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ===================== Hero ===================== -->
+    <section class="hero">
+      <div class="hero__media" aria-hidden="true"><img class="hero__img" src="assets/hero-red.jpg" alt=""></div>
+
+      <div class="hero__top">
+        <h1 class="hero__title serif"><span class="line"><span class="line__inner">inframe.studios</span></span></h1>
+        <p class="hero__sub" data-reveal style="--d: 250ms">Get in frame — an actors studio in London</p>
+      </div>
+
+      <div class="hero__bottom">
+        <p class="hero__desc" data-reveal style="--d: 400ms">Headshots, showreels and self-tapes for actors — directed by someone who works on both sides of the lens.</p>
+
+        <div class="hero__proof" data-reveal style="--d: 550ms">
+          <div class="stars" aria-label="Rated 5 out of 5">
+            <span class="stars__icons" aria-hidden="true">
+              <svg viewBox="0 0 20 19"><path d="M10 0l2.35 6.9H19.6l-5.9 4.3 2.25 6.9L10 13.8l-5.95 4.3 2.25-6.9L.4 6.9h7.25z"/></svg><svg viewBox="0 0 20 19"><path d="M10 0l2.35 6.9H19.6l-5.9 4.3 2.25 6.9L10 13.8l-5.95 4.3 2.25-6.9L.4 6.9h7.25z"/></svg><svg viewBox="0 0 20 19"><path d="M10 0l2.35 6.9H19.6l-5.9 4.3 2.25 6.9L10 13.8l-5.95 4.3 2.25-6.9L.4 6.9h7.25z"/></svg><svg viewBox="0 0 20 19"><path d="M10 0l2.35 6.9H19.6l-5.9 4.3 2.25 6.9L10 13.8l-5.95 4.3 2.25-6.9L.4 6.9h7.25z"/></svg><svg viewBox="0 0 20 19"><path d="M10 0l2.35 6.9H19.6l-5.9 4.3 2.25 6.9L10 13.8l-5.95 4.3 2.25-6.9L.4 6.9h7.25z"/></svg>
+            </span>
+            <span>5.0/5</span>
+          </div>
+          <!-- PLACEHOLDER reviews: swap in real client quotes -->
+          <div class="reviews" data-reviews>
+            <div class="reviews__track">
+              <p class="review">“Such a pleasure working with Patrick.”</p>
+              <p class="review">“Would definitely book again.”</p>
+              <p class="review">“Finally headshots that actually look like me.”</p>
+              <p class="review">“Felt at ease from the very first frame.”</p>
+            </div>
+            <div class="reviews__dots" aria-hidden="true"></div>
+          </div>
+          <a class="btn btn--white hero__cta" href="#contact">Book a session</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== Intro + showreel ===================== -->
+    <section class="section center" id="showreel">
+      <div class="container">
+        <p class="eyebrow" data-split>Everything an actor needs.<br>One roof.</p>
+        <div class="rule" data-draw="x"></div>
+        <h2 class="mega serif" data-split>Directed By Someone Who’s Spent As Much Time Behind The Camera As In Front Of It.</h2>
+        <p class="lede" data-split>Years of experience across film and media — as an editor, director and actor — go into every frame. Honest, cinematic footage that looks like a scene from something, not a self-tape.</p>
+        <div data-reveal><a class="btn btn--red" href="#contact">Book a Session</a></div>
+      </div>
+      <div class="feature-video">
+        <div class="video video--hero" data-src="assets/video/showreel.mp4" data-img>
+          <video class="preview" src="assets/video/showreel-preview.mp4" poster="assets/poster-showreel.jpg" muted loop playsinline autoplay preload="auto"></video>
+          <button class="video__play video__play--label" aria-label="Play showreel with sound"><svg viewBox="0 0 34 38" fill="currentColor"><path d="M0 0l34 19L0 38z"/></svg><span>Watch the showreel</span></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== Headshots ===================== -->
+    <section class="section section--tight-top center" id="headshots">
+      <div class="container">
+        <p class="eyebrow" data-split>It’s about you.</p>
+        <div class="rule" data-draw="x"></div>
+        <h2 class="mega serif" data-split>Natural, Castable Headshots That Look Like You On Your Best Day</h2>
+        <div data-reveal style="margin-top: 48px"><a class="btn btn--red" href="#contact">Book a Session</a></div>
+      </div>
+
+      <div class="headshots wide" data-slider data-reveal>
+        <div class="slider">
+          <div class="slider__track">
+            <div><img src="assets/headshot1.jpg" alt="Actor headshot by inframe.studios"></div>
+            <div><img src="assets/headshot2.jpg" alt="Actor headshot by inframe.studios"></div>
+            <div><img src="assets/headshot3.jpg" alt="Actor headshot by inframe.studios"></div>
+            <div><img src="assets/headshot4.jpg" alt="Actor headshot by inframe.studios"></div>
+            <div><img src="assets/headshot5.jpg" alt="Actor headshot by inframe.studios" loading="lazy"></div>
+            <div><img src="assets/headshot6.jpg" alt="Actor headshot by inframe.studios" loading="lazy"></div>
+            <div><img src="assets/headshot7.jpg" alt="Actor headshot by inframe.studios" loading="lazy"></div>
+            <div><img src="assets/headshot8.jpg" alt="Actor headshot by inframe.studios" loading="lazy"></div>
+            <div><img src="assets/headshot9.jpg" alt="Actor headshot by inframe.studios" loading="lazy"></div>
+            <div><img src="assets/headshot10.jpg" alt="Actor headshot by inframe.studios" loading="lazy"></div>
+            <div><img src="assets/headshot11.jpg" alt="Actor headshot by inframe.studios" loading="lazy"></div>
+            <div><img src="assets/headshot12.jpg" alt="Actor headshot by inframe.studios" loading="lazy"></div>
+          </div>
+          <button class="arrow arrow--prev" data-prev aria-label="Previous"><svg viewBox="0 0 26 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M26 7H2M8 1 2 7l6 6"/></svg></button>
+          <button class="arrow arrow--next" data-next aria-label="Next"><svg viewBox="0 0 26 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M0 7h24M18 1l6 6-6 6"/></svg></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== Spotlight / reels ===================== -->
+    <section class="section section--tight-top">
+      <div class="container center">
+        <h2 class="upgrade-title serif" data-split>Upgrade your Spotlight piece by piece.</h2>
+        <div class="vline vline--short" data-draw="y" style="margin-top: 32px"></div>
+      </div>
+
+      <div class="reel-grid">
+        <a class="reel" href="services/incharacter.html">
+          <div class="reel__img" data-img><video class="preview" src="assets/video/tapes.mp4" poster="assets/poster-tapes.jpg" muted loop playsinline autoplay preload="metadata"></video></div>
+          <p class="reel__cap" data-reveal>Cinematic Monologue <small>from £170</small></p>
+        </a>
+        <a class="reel" href="services/inscene.html">
+          <div class="reel__img" data-img><video class="preview" src="assets/video/showreel-preview.mp4" poster="assets/poster-showreel.jpg" muted loop playsinline autoplay preload="metadata"></video></div>
+          <p class="reel__cap" data-reveal>Showreel Scene <small>from £350</small></p>
+        </a>
+        <a class="reel" href="services/inrange.html">
+          <div class="reel__img" data-img><video class="preview" src="assets/video/skills.mp4" poster="assets/poster-skills.jpg" muted loop playsinline autoplay preload="metadata"></video></div>
+          <p class="reel__cap" data-reveal>A Video For Your Skills <small>from £120</small></p>
+        </a>
+        <!-- placeholder: tapes.mp4 until there's an About Me reel -->
+        <a class="reel" href="services/inperson.html">
+          <div class="reel__img" data-img><video class="preview" src="assets/video/tapes.mp4" poster="assets/poster-tapes.jpg" muted loop playsinline autoplay preload="metadata"></video></div>
+          <p class="reel__cap" data-reveal>About Me Videos <small>€320 · Vienna only</small></p>
+        </a>
+      </div>
+    </section>
+
+    <!-- ===================== About ===================== -->
+    <section class="section section--tight-top" id="about">
+      <div class="vline vline--short" data-draw="y"></div>
+      <div class="about">
+        <h2 class="about__title serif" data-split>Built by someone who works on both sides of the lens.</h2>
+        <div>
+          <div class="about__img" data-img><img src="assets/about-me.jpg" alt="Patrick Isopp, founder of inframe.studios"></div>
+          <h3 class="about__name serif" data-split>Patrick Isopp</h3>
+          <div class="about__body" data-reveal>
+            <p class="about__role">Founder · Actor · Filmmaker</p>
+            <p>Patrick Isopp is an Austrian actor, writer and filmmaker. He graduated from the Film Academy Vienna and completed his MA in Acting (Classical) at the Royal Central School of Speech and Drama in London in 2026, supported by the Embassy Theatre Scholarship.</p>
+            <p>Since graduating in Vienna he has worked across Austria and Germany on screen and stage. His credits include the Netflix series Totenfrau, SOKO Donau and the ORF TV film Bis in die Seele ist mir kalt, as well as productions at Theater INC. Darmstadt, Junge Luisenburg and klagenfurter ensemble. In London he played Sir Toby Belch in Twelfth Night. Behind the camera, he works as a videographer, editor and writer. He has published short stories and a book (The Room / Das Zimmer, 2024), produced the short films No Heroes and Tunnel of Horror (2022) and directed the short play Confabulations (2026).</p>
+            <p>Away from set, he is passionate about movement and sport — from judo and BJJ to long-distance running and cycling — always with a new challenge on the horizon.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== Location ===================== -->
+    <section class="section section--grey section--compact">
+      <div class="location">
+        <div class="map" data-img><iframe title="Map of London" src="https://maps.google.com/maps?q=London,UK&amp;z=11&amp;output=embed"></iframe></div>
+        <div class="location__text">
+          <div>
+            <p class="loc__city" data-reveal>London</p>
+            <h3 class="loc__title serif" data-split>Home Base</h3>
+          </div>
+          <div>
+            <p class="loc__text" data-reveal>Headshots, showreels and self-tapes for actors working in the UK market — studio or on location, all year round.</p>
+            <div data-reveal><a class="btn btn--red" href="#contact">Book a Session</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== Contact ===================== -->
+    <section class="contact" id="contact">
+      <h2 class="contact__title serif" data-split>Ready to get in frame?</h2>
+      <div class="contact__grid">
+        <p class="contact__intro" data-reveal>Tell us what you need — a headshot day, a fresh tape by Friday, or a full reel from scratch — and we'll get back to you within 48 hours.</p>
+        <form class="form" data-contact data-reveal style="--d: 150ms" novalidate>
+          <fieldset>
+            <legend>Name</legend>
+            <div class="form__row">
+              <div class="field">
+                <label for="first">First Name<span>(required)</span></label>
+                <input id="first" name="first" autocomplete="given-name" required>
+              </div>
+              <div class="field">
+                <label for="last">Last Name<span>(required)</span></label>
+                <input id="last" name="last" autocomplete="family-name" required>
+              </div>
+            </div>
+          </fieldset>
+          <div class="form__row">
+            <div class="field">
+              <label for="email">Email<span>(required)</span></label>
+              <input id="email" name="email" type="email" autocomplete="email" required>
+            </div>
+            <div class="field">
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel">
+            </div>
+          </div>
+          <div class="field">
+            <label for="session">Session</label>
+            <select id="session" name="session">
+              <option value="">Not sure yet — let's talk</option>
+              <option value="infocus">in focus — 60 min headshots (£170)</option>
+              <option value="indepth">in depth — 90 min headshots (£230)</option>
+              <option value="incharacter">in character — cinematic monologue (£170)</option>
+              <option value="inscene">in scene — showreel scene (£350)</option>
+              <option value="inmotion">in motion — full showreel (£860)</option>
+              <option value="infull">in full — complete actors package (£980)</option>
+              <option value="inrange">in range — skills reel (£120)</option>
+              <option value="inperson">in person — About Me video (€320, Vienna only)</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Dates that work for you, what you need it for…"></textarea>
+          </div>
+          <button class="btn btn--white-red" type="submit">Send</button>
+          <p class="form__note" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== Footer ===================== -->
+  <footer class="footer">
+    <div class="footer__row">
+      <p class="footer__big serif" style="margin:0" data-split>inframe.studio</p>
+      <p class="footer__big serif" style="margin:0" data-split><a href="mailto:contact@inframe.studio">contact@inframe.studio</a></p>
+    </div>
+    <div class="footer__row footer__meta">
+      <span>London</span>
+      <div class="socials">
+        <!-- TODO: point these at your profiles -->
+        <a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.75 3h3.07l-6.7 7.66L22 21h-6.17l-4.83-6.32L5.47 21H2.4l7.17-8.2L2 3h6.33l4.37 5.77L17.75 3Zm-1.08 16.2h1.7L7.4 4.73H5.58L16.67 19.2Z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.6 1.6-1.6h1.7V4.3c-.3 0-1.3-.1-2.5-.1-2.5 0-4.1 1.5-4.1 4.2v2.4H7.4V14h2.8v8h3.3Z"/></svg></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
