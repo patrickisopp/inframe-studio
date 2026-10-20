@@ -34,6 +34,11 @@ The copy for the eight service pages lives in `tools/build_services.py`. Edit it
 python3 tools/build_services.py site/services
 ```
 
+## Deploy (Vercel)
+
+No build step. `vercel.json` tells Vercel to serve the `site/` folder, so `site/index.html` is the homepage.
+In the Vercel project settings, leave Root Directory as `./` (the repo root).
+
 ## Notes
 
 - The contact form opens the visitor's email app (mailto). Swap in a form service (e.g. Formspree) once hosted.
