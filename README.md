@@ -39,6 +39,9 @@ python3 tools/build_services.py site/services
 No build step. `vercel.json` tells Vercel to serve the `site/` folder, so `site/index.html` is the homepage.
 In the Vercel project settings, leave Root Directory as `./` (the repo root).
 
+Until launch, `vercel.json` temporarily redirects `/` to `/coming-soon/`. The full site stays reachable at
+`/index.html`, `/sessions.html` etc. To launch, delete the `redirects` block from `vercel.json` and push.
+
 ## Notes
 
 - The contact form (homepage) and the newsletter sign-up (`site/coming-soon/`) send emails via FormSubmit (formsubmit.co).
