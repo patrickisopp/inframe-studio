@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>inframe. — An Actors Studio · Launching January 2027</title>
+  <meta name="description" content="inframe.studios — headshots, showreels and self-tapes for actors in London. Launching January 2027. Sign up to hear first.">
+  <meta name="theme-color" content="#df0209">
+  <script>
+    document.documentElement.classList.add("js");
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) document.documentElement.classList.add("is-loading");
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Inter:wght@400;500&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="/assets/hero-red.jpg">
+  <style>
+    :root {
+      --red: #df0209;
+      --ink: #0b0b0b;
+      --serif: "Playfair Display", "Didot", Georgia, serif;
+      --sans: "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+      --gutter: clamp(20px, 4vw, 56px);
+      --ease-out: cubic-bezier(0.19, 1, 0.22, 1);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      background: var(--red);
+      color: #fff;
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+      overflow: hidden;
+    }
+
+    /* ---------- page ---------- */
+    .page {
+      position: relative;
+      height: 100vh;
+      height: 100svh;
+      min-height: 560px;
+      overflow: hidden;
+    }
+    .page__media { position: absolute; inset: 0; }
+    .page__media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 62%;
+      transition: transform 2.4s var(--ease-out);
+    }
+    .is-loading .page__media img { transform: scale(1.22); }
+    .page::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(60, 0, 0, .4), transparent 45%);
+      pointer-events: none;
+    }
+
+    .top {
+      position: absolute;
+      z-index: 1;
+      top: clamp(20px, 3vw, 36px);
+      left: var(--gutter);
+      right: var(--gutter);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      font-size: 14px;
+    }
+    .logo { font-family: var(--serif); font-weight: 700; font-size: 20px; letter-spacing: -0.03em; }
+    .top a { color: inherit; text-decoration: none; opacity: .9; }
+    .top a:hover { opacity: 1; text-decoration: underline; text-underline-offset: 3px; }
+
+    .title-wrap {
+      position: absolute;
+      z-index: 1;
+      top: clamp(76px, 10vw, 120px);
+      left: var(--gutter);
+      right: var(--gutter);
+    }
+    .title {
+      margin: 0;
+      font-family: var(--serif);
+      font-weight: 700;
+      font-size: 22vw; /* refined by JS so the word spans the full width */
+      line-height: 0.9;
+      letter-spacing: -0.05em;
+      white-space: nowrap;
+    }
+    .sub {
+      margin: clamp(8px, 1.2vw, 16px) 0 0;
+      font: 400 13px/1.4 var(--mono);
+      letter-spacing: 0.02em;
+    }
+
+    .bottom {
+      position: absolute;
+      z-index: 1;
+      left: var(--gutter);
+      right: var(--gutter);
+      bottom: clamp(24px, 3.5vw, 48px);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 40px;
+    }
+    .launch__label { margin: 0 0 6px; font: 400 13px/1.4 var(--mono); letter-spacing: 0.02em; opacity: .9; }
+    .launch__date {
+      margin: 0;
+      font-family: var(--serif);
+      font-weight: 700;
+      font-size: clamp(40px, 5.4vw, 84px);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+    }
+
+    .signup { width: min(420px, 100%); }
+    .signup__intro { margin: 0 0 14px; font-size: 15px; line-height: 1.45; }
+    .signup__row { display: flex; gap: 8px; }
+    .signup input[type="email"] {
+      flex: 1;
+      min-width: 0;
+      height: 50px;
+      padding: 0 20px;
+      border: 1.5px solid rgba(255, 255, 255, .7);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .08);
+      color: #fff;
+      font: 400 16px var(--sans);
+      outline: none;
+      transition: border-color .3s ease, background-color .3s ease;
+    }
+    .signup input[type="email"]::placeholder { color: rgba(255, 255, 255, .7); }
+    .signup input[type="email"]:focus { border-color: #fff; background: rgba(255, 255, 255, .14); }
+    .signup button {
+      height: 50px;
+      padding: 0 24px;
+      border: 0;
+      border-radius: 999px;
+      background: #fff;
+      color: var(--ink);
+      font: 500 15px var(--sans);
+      white-space: nowrap;
+      cursor: pointer;
+      transition: background-color .3s ease, color .3s ease, transform .4s var(--ease-out);
+    }
+    .signup button:hover { background: var(--ink); color: #fff; }
+    .signup button:active { transform: scale(.97); }
+    .signup button[disabled] { opacity: .6; cursor: default; }
+    .signup__note { min-height: 1.4em; margin: 10px 0 0; font-size: 13px; line-height: 1.4; opacity: .9; }
+    .signup__note.is-error { opacity: 1; font-weight: 500; }
+    .signup.is-done .signup__row { display: none; }
+    .signup.is-done .signup__note { font-size: 15px; opacity: 1; }
+    .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+    /* ---------- reveal ---------- */
+    .line { display: block; overflow: hidden; padding: .06em 0 .12em; margin: -.06em 0 -.12em; }
+    .line__inner { display: inline-block; transition: transform 1.5s var(--ease-out); transition-delay: var(--d, 0ms); }
+    .js .line__inner { transform: translate3d(0, 115%, 0); }
+    .js .reveal { opacity: 0; transform: translate3d(0, 24px, 0); transition: opacity 1s ease, transform 1.2s var(--ease-out); transition-delay: var(--d, 0ms); }
+    .is-in .line__inner, .is-in .reveal, .js .is-in.reveal { opacity: 1; transform: none; }
+
+    /* ---------- loading screen ---------- */
+    .loader { display: none; }
+    .is-loading .loader, .loader.is-leaving {
+      position: fixed;
+      inset: 0;
+      z-index: 10;
+      display: grid;
+      place-items: center;
+      background: var(--red);
+      text-align: center;
+      clip-path: inset(0 0 0 0);
+      animation: loader-failsafe 0s 6s forwards; /* never block the page if the script fails */
+    }
+    .loader.is-leaving { clip-path: inset(0 0 100% 0); transition: clip-path 1.1s cubic-bezier(0.76, 0, 0.24, 1); }
+    .loader__inner { animation: loader-in 1s var(--ease-out) both; }
+    .loader.is-leaving .loader__inner { opacity: 0; transform: translateY(-16px); transition: opacity .4s ease, transform .6s var(--ease-out); }
+    .loader__logo { margin: 0; font-family: var(--serif); font-weight: 700; font-size: clamp(26px, 2.6vw, 34px); letter-spacing: -0.03em; }
+    .loader__logo sup { font-size: .45em; margin-left: 1px; }
+    .loader__tag { margin: 6px 0 0; font-size: 12px; opacity: .85; }
+    @keyframes loader-in { from { opacity: 0; transform: translateY(14px); } }
+    @keyframes loader-failsafe { to { visibility: hidden; } }
+
+    @media (max-width: 760px) {
+      .bottom { flex-direction: column; align-items: flex-start; gap: 28px; }
+      .signup__row { flex-direction: column; }
+      .signup input[type="email"] { flex: none; width: 100%; }
+      .signup button { width: 100%; }
+    }
+    @media (max-height: 640px) and (min-width: 761px) {
+      .launch__date { font-size: clamp(36px, 4.4vw, 64px); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .line__inner, .js .line__inner, .js .reveal, .page__media img { transform: none !important; opacity: 1 !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="loader" aria-hidden="true">
+    <div class="loader__inner">
+      <p class="loader__logo">inframe.studios<sup>°</sup></p>
+      <p class="loader__tag">An actors studio in London</p>
+    </div>
+  </div>
+
+  <main class="page">
+    <div class="page__media" aria-hidden="true"><img src="/assets/hero-red.jpg" alt=""></div>
+
+    <div class="top">
+      <span class="logo">inframe.studios</span>
+    </div>
+
+    <div class="title-wrap" data-hero>
+      <h1 class="title"><span class="line"><span class="line__inner">inframe.</span></span></h1>
+      <p class="sub reveal" style="--d: 250ms">An Actors Studio. London.</p>
+    </div>
+
+    <div class="bottom" data-hero>
+      <div class="launch reveal" style="--d: 400ms">
+        <p class="launch__label">Launching</p>
+        <p class="launch__date">JAN 2027</p>
+      </div>
+
+      <!--
+        Newsletter sign-ups are sent by FormSubmit (formsubmit.co) as an email to the address below.
+        The very first submission triggers a one-time activation email to that inbox — click "Activate" in it.
+        After activating, FormSubmit gives you a random alias: replace the address in SIGNUP_ENDPOINT and in
+        the form action with it, so your email address isn't visible in the page source.
+      -->
+      <form class="signup reveal" style="--d: 550ms" action="https://formsubmit.co/patrick-isopp@outlook.com" method="POST" data-signup>
+        <p class="signup__intro">Be the first to know when bookings open — headshots, showreels and self-tapes for actors in London.</p>
+        <div class="signup__row">
+          <label class="hp" for="email">Email address</label>
+          <input id="email" type="email" name="email" placeholder="Your email address" autocomplete="email" required>
+          <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <input type="hidden" name="_subject" value="New newsletter sign-up — inframe.studios">
+          <input type="hidden" name="_template" value="table">
+          <button type="submit">Notify me</button>
+        </div>
+        <p class="signup__note" aria-live="polite">Launch news only. No spam, unsubscribe anytime.</p>
+      </form>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      "use strict";
+      var SIGNUP_ENDPOINT = "https://formsubmit.co/ajax/patrick-isopp@outlook.com";
+
+      var root = document.documentElement;
+      var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      var fontsReady = document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve();
+
+      /* size "inframe." so it spans the full width */
+      var title = document.querySelector(".title");
+      function fitTitle() {
+        var inner = title.querySelector(".line__inner");
+        title.style.fontSize = "100px";
+        var natural = inner.getBoundingClientRect().width;
+        if (natural) title.style.fontSize = (100 * title.clientWidth / natural).toFixed(2) + "px";
+      }
+      fitTitle();
+      fontsReady.then(fitTitle);
+      window.addEventListener("resize", fitTitle);
+
+      /* loading screen → photo settles → type rises */
+      function reveal() {
+        Array.prototype.forEach.call(document.querySelectorAll("[data-hero]"), function (el) { el.classList.add("is-in"); });
+      }
+      var loader = document.querySelector(".loader");
+      if (root.classList.contains("is-loading")) {
+        var img = document.querySelector(".page__media img");
+        var imgReady = new Promise(function (resolve) {
+          if (img.complete) return resolve();
+          img.addEventListener("load", resolve);
+          img.addEventListener("error", resolve);
+        });
+        var minTime = new Promise(function (r) { setTimeout(r, 1600); });
+        var maxTime = new Promise(function (r) { setTimeout(r, 4000); });
+        Promise.race([Promise.all([imgReady, fontsReady, minTime]), maxTime]).then(function () {
+          fitTitle();
+          loader.classList.add("is-leaving");
+          root.classList.remove("is-loading");
+          setTimeout(reveal, 350);
+          setTimeout(function () { loader.remove(); }, 1200);
+        });
+      } else {
+        loader.remove();
+        reveal();
+      }
+
+      /* newsletter sign-up */
+      var form = document.querySelector("[data-signup]");
+      var note = form.querySelector(".signup__note");
+      var button = form.querySelector("button");
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (!form.reportValidity()) return;
+        if (form._honey.value) return; // bot
+        button.disabled = true;
+        button.textContent = "Sending…";
+        note.classList.remove("is-error");
+
+        fetch(SIGNUP_ENDPOINT, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "Accept": "application/json" },
+          body: JSON.stringify({
+            email: form.email.value,
+            _subject: form._subject.value,
+            _template: "table",
+            message: "New newsletter sign-up from the inframe.studios launch page."
+          })
+        })
+          .then(function (res) { return res.json().then(function (data) { return { ok: res.ok, data: data }; }); })
+          .then(function (r) {
+            if (!r.ok || String(r.data.success) !== "true") throw new Error(r.data.message || "Sign-up failed");
+            form.classList.add("is-done");
+            note.textContent = "You're on the list — we'll let you know as soon as bookings open.";
+          })
+          .catch(function () {
+            button.disabled = false;
+            button.textContent = "Notify me";
+            note.classList.add("is-error");
+            note.textContent = "That didn't go through. Please try again in a moment.";
+          });
+      });
+    })();
+  </script>
+</body>
+</html>

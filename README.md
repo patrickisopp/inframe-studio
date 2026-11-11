@@ -41,6 +41,9 @@ In the Vercel project settings, leave Root Directory as `./` (the repo root).
 
 ## Notes
 
-- The contact form opens the visitor's email app (mailto). Swap in a form service (e.g. Formspree) once hosted.
+- The contact form (homepage) and the newsletter sign-up (`site/coming-soon/`) send emails via FormSubmit (formsubmit.co).
+  The first submission from each triggers a one-time activation email; click "Activate" in it. Afterwards, swap the
+  address in `CONTACT_ENDPOINT` (js/main.js) and `SIGNUP_ENDPOINT` (coming-soon/index.html) for FormSubmit's random alias.
+- `site/coming-soon/` is a standalone launch page ("Launching JAN 2027") with a newsletter sign-up.
 - `site/assets/video/showreel.mp4` is ~96 MB. It works on GitHub, but long term the showreel is better hosted on Vimeo/YouTube (the video players accept those links via `data-src`).
 - Hero reviews and the 5.0/5 rating are placeholders.

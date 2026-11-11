@@ -454,9 +454,12 @@
   }
 
   /* ---------------------------------------------------------------------
-     Contact form: opens the visitor's mail app with the details filled in
-     (swap for Formspree / Netlify Forms etc. once the site is hosted)
+     Contact form: sent by FormSubmit (formsubmit.co) as an email to the
+     address in CONTACT_ENDPOINT. The first enquiry triggers a one-time
+     activation email to that inbox; after activating, FormSubmit offers a
+     random alias you can put here instead of the real address.
      --------------------------------------------------------------------- */
+  var CONTACT_ENDPOINT = "https://formsubmit.co/ajax/patrick-isopp@outlook.com";
   var form = document.querySelector("[data-contact]");
   if (form) {
     // ?session=inscene preselects that session (service pages link here)
@@ -464,22 +467,48 @@
     var wanted = params.get("session");
     if (wanted && form.session && form.session.querySelector('option[value="' + wanted + '"]')) form.session.value = wanted;
 
+    var note = form.querySelector(".form__note");
+    var submit = form.querySelector('button[type="submit"]');
+
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       if (!form.reportValidity()) return;
+      if (form._honey && form._honey.value) return; // bot
       var d = new FormData(form);
       var name = (d.get("first") + " " + d.get("last")).trim();
-      var body = [
-        "Name: " + name,
-        "Phone: " + (d.get("phone") || "-"),
-        "Email: " + d.get("email"),
-        "Session: " + (form.session ? form.session.options[form.session.selectedIndex].text : "-"),
-        "",
-        d.get("message") || ""
-      ].join("\n");
-      location.href = "mailto:contact@inframe.studio?subject=" + encodeURIComponent("Session enquiry — " + name) + "&body=" + encodeURIComponent(body);
-      var note = form.querySelector(".form__note");
-      if (note) note.textContent = "Thanks! Your email app should open now — just hit send.";
+      var session = form.session && form.session.value ? form.session.options[form.session.selectedIndex].text : "Not sure yet";
+
+      submit.disabled = true;
+      submit.textContent = "Sending…";
+      note.textContent = "";
+
+      fetch(CONTACT_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify({
+          _subject: "Session enquiry — " + name,
+          _replyto: d.get("email"),
+          _template: "table",
+          Name: name,
+          Email: d.get("email"),
+          Phone: d.get("phone") || "-",
+          Session: session,
+          Message: d.get("message") || "-"
+        })
+      })
+        .then(function (res) { return res.json().then(function (data) { return { ok: res.ok, data: data }; }); })
+        .then(function (r) {
+          if (!r.ok || String(r.data.success) !== "true") throw new Error(r.data.message || "Send failed");
+          form.reset();
+          submit.textContent = "Sent";
+          note.textContent = "Thanks, " + d.get("first") + "! We'll get back to you within 48 hours.";
+          setTimeout(function () { submit.disabled = false; submit.textContent = "Send"; }, 4000);
+        })
+        .catch(function () {
+          submit.disabled = false;
+          submit.textContent = "Send";
+          note.textContent = "That didn't go through. Please try again in a moment.";
+        });
     });
   }
 
